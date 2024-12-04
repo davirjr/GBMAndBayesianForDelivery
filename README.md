@@ -1,10 +1,12 @@
 # Previsão de Desempenho de Entregas com Modelos de Machine Learning
 
-Este projeto tem como objetivo prever o desempenho de entregas ao longo do mês, estimando a proporção de entregas realizadas em menos de 30 minutos. Utiliza uma combinação de **modelo Bayesiano dinâmico** e **Gradient Boosting Machines (GBM)** para previsões contínuas e ações corretivas proativas.
+Este projeto tem como objetivo prever o desempenho das entregas ao longo do mês, estimando a proporção de entregas realizadas em menos de 30 minutos. Utiliza uma combinação de modelo Bayesiano dinâmico e Gradient Boosting Machines (GBM) para previsões contínuas e ações corretivas proativas. Este modelo é útil para dados onde o tempo de entrega se comporta de forma não paramétrica e tem alta influência de caudas longas (outliers).
+
+O modelo Bayesiano é particularmente eficaz quando combinado com métodos que permitem determinar a importância de cada variável para o resultado. Nesse caso, ele é ideal para um processo de entrega que segue um comportamento semelhante ao log-normal, com efeito de cauda longa e a presença de cerca de 5% de outliers.
 
 ## Objetivo
-- **Meta de Desempenho**: 75% ou mais das entregas realizadas em menos de 30 minutos. #Pode ser ajustado conforome a necessidade do seu processo. 
-- O modelo Bayesiano faz previsões contínuas da proporção de entregas dentro do prazo, atualizadas diariamente com novos dados.
+- **Meta de Desempenho**: 75% ou mais das entregas realizadas em menos de 30 minutos. #Pode ser ajustado conforme a necessidade do seu processo. 
+- O modelo Bayesiano faz previsões contínuas da proporção de entregas dentro do prazo, atualizadas diariamente com novos dados (certifique-se de que a distribuição seja razoavelmente similar à log-normal - caso não seja, ajuste o modelo). 
 - Quando a previsão indicar risco de não atingir a meta, o **GBM** é acionado para identificar as principais causas dos atrasos e permitir ações corretivas.
 
 ## Funcionalidade
